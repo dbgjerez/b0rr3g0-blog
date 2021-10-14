@@ -1,7 +1,7 @@
 ---
 layout: post
 author: David Borrego
-tags: golang istio wasm
+tags: golang istio wasm c++ tinygo java kubernetes
 ---
 # Prerequisites
 These are the tool that you need to install to start developing it. If you only like to run the container, you will need only a docker installation. 
