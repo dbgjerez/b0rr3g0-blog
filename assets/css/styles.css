@@ -75,6 +75,57 @@
   }
 }
 
+div#tag-cloud {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.5rem;
+}
+
+div#tag-cloud a {
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.125rem 0.25rem;
+  text-decoration: none;
+  position: relative;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+div#tag-cloud a.set-1 {
+  font-size: 1em;
+}
+
+div#tag-cloud a.set-2 {
+  font-size: 1.2em;
+}
+
+div#tag-cloud a.set-3 {
+  font-size: 1.4em;
+}
+
+div#tag-cloud a.set-4 {
+  font-size: 1.6em;
+}
+
+div#tag-cloud a.set-5 {
+  font-size: 1.8em;
+}
+
+a.tag {
+  border: 1px solid;
+  border-radius: 8px;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
 .highlight {
   box-sizing: border-box;
   border-radius: 6px;
