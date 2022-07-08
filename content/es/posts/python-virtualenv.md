@@ -1,7 +1,7 @@
 ---
 title: "Entornos virtuales en Python"
 date: 2022-07-08
-draft: true
+draft: false
 tags: ["python", "virtualenv"]
 ---
 
