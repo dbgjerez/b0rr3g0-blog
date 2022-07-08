@@ -1,11 +1,13 @@
-baseURL="http://example.org/"
-title="b0rr3g0 tech"
+baseURL="https://blog.dbgjerez.es"
+title="b0rr3g0"
+subtitle="omg"
 theme="beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
+googleAnalytics = "G-NL3RYZ5Z31"
 
 [languages]
   [languages.en]
@@ -14,10 +16,9 @@ pygmentsCodefencesGuessSyntax = true
     contentDir= "content/es"
 
 [Params]
-  subtitle = "Build a beautiful and simple website in minutes"
   mainSections = ["post","posts"]
   logo = "img/avatar-icon.png" # Expecting square dimensions
-  favicon = "img/favicon.ico"
+  favicon = "sheep.png"
   dateFormat = "January 2, 2006"
   commit = false
   rss = true
@@ -31,7 +32,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [Author]
   name = "David Borrego"
-  website = ""
+  website = "https://blog.dbgjerez.es"
   email = "dbgjerez@gmail.com"
   github = "dbgjerez"
   twitter = "dbgjerez"
