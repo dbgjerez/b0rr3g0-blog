@@ -4,22 +4,21 @@ date: 2022-07-13
 draft: true
 tags: ["python", "cloud-native", "twelve-factor"]
 ---
+Nowadays, we have to configure many configuration parameters in our applications. These parameters sometimes depend on the execution environment. 
 
-En las aplicaciones actuales, existe un gran número de parámetros de configuración. Estos parámetros, en ocasiones dependen del entorno de ejecución. 
-
-Para que nuestras aplicaciones sean más mantenibles, es necesario externalizar la configuración, de forma que un mismo entregable pueda ejecutarse en diferentes entornos. Podemos ampliar información [aquí](https://12factor.net/config)
+We need to build a maintainable code whose configuration should be externalised. This way, we can run the same package in different environments. More information [here](https://12factor.net/config)
 <!--more-->
-Aunque no es el objetivo de este artículo, el concepto "cloud-native" también es un punto a tener en cuenta, de forma que nuestras aplicaciones puedan ser fácilmente ejecutadas y configuradas en entornos cloud. 
+Another important concept is "cloud-native". This concept refers to how we should develop our applications, facilitating running and configuring them in cloud environments. 
 
-A continuación vamos a ver cómo **externalizar la configuración en Python de forma "cloud-native"**. 
+In this article, we are going to see how **to configure our Python applications in a "cloud-native" way**.
 
-> Además de la formas detalladas a continuación, existen proveedores de secretos que nos gestionan el ciclo de vida de los mismos. Estos formarían parte del cómo se proveen y debería ser independiente de cómo la aplicación los lee.
+> In addition, exist other ways to configure parameters as secrets. These cover the secret's lifecycle and how it is provided, which should be independent that our programming language. 
 
-# Variables de entornos
+# Environment variables
 
-Las variables de entornos son una forma básica de externalizar la configuración.
+The environment variables are a basic way to externalise the configuration. 
 
-Para la lectura de variables de entorno utilizaremos directamente la libreria ```os```, propia de Python.
+To read the variables in our Python code, we will use the ```os``` library.
 
 ```python
 import os
@@ -28,26 +27,26 @@ user = os.getenv('USER')
 print("[USER]:", user)
 ```
 
-Si ejecutamos dicho fichero: 
+Run it:
 
 ```zsh
 ❯ python tmp.py
 [USER]: db
 ```
 
-# Ficheros de configuración
+# Configuration files
 
-Otra opción es el uso de ficheros de configuración. Esta opción tiene la ventaja de poder manejar de forma más sencilla gran número de variables y ficheros. 
+The configuration files have the advantage to manage many variables easily. These variables are in one or more files that can be replaced depending on the environment. 
 
-Para cargar desde ficheros externos, haremos uso de la libreria ```python-dotenv```. Normalmente cargaremos un fichero de propiedades con formato (K,V), aunque también es posible cargar ficheros de tipo json o yaml. 
+The ```python-dotenv``` library helps us to load the configuration files. By default, the library loads a (K, V) properties file, but we can change its format. 
 
-El primer paso será instalar la libreria:
+Firstly, install the library:
 
 ```zsh
 pip install python-dotenv
 ```
 
-Una vez instalada, simplemente tendremos que cargar la configuración: 
+Now, we only have to use it to load the configuration:
 
 ```python
 from dotenv import load_dotenv
@@ -59,24 +58,24 @@ user = os.getenv('USER')
 print("[USER]:", user)
 ```
 
-Parámetros de la función ```load_dotenv```:
-* Fichero: indicamos que nuestras varibles de entornos se encuentran en el fichero ```.env```
-* Override: con esta propiedad indicamos si queremos sobreescribir las variables del sistema, dando prioridad a las de nuestro fichero de configuración.
+The function ```load_dotenv``` can be configured:
+* file: by default, the library searches the file ```.env```, but we can indicate another. 
+* Override: this property indicates if we like to give priority the file variables over system variables. 
 
-Creamos el fichero ```.env```:
+Create the ```.env``` file:
 
 ```zsh
 ❯ echo 'USER=dborrego' > .env
 ```
 
-Ejecutamos nuestro fichero de prueba:
+And, run the Python code: 
 
 ```zsh
 ❯ python tmp.py
 [USER]: dborrego
 ```
 
-# Referencias
+# References
 
 * The twelve-factor app: https://12factor.net/
 * https://pypi.org/project/python-dotenv/

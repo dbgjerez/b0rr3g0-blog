@@ -1,5 +1,5 @@
 ---
-title: "Configuración en aplicaciones Python"
+title: "Configuración aplicaciones Python"
 date: 2022-07-13
 draft: true
 tags: ["python", "cloud-native", "twelve-factor"]
