@@ -1,8 +1,8 @@
 ---
-title: "Métricas en aplicationes Go"
+title: "Golang application metrics"
 date: 2022-07-14
 draft: true
-tags: ["monitoring", "prometheus", "go", "gin-gonic"]
+tags: ["monitoring", "prometheus", "golang", "gin-gonic"]
 series: ["Monitoring a Microservice"]
 ---
 
@@ -86,8 +86,6 @@ go_gc_duration_seconds_sum 0
 go_gc_duration_seconds_count 0
 ...
 ```
-
-El listado de métricas es mucho más extenso. Estas métricas serán leidas por Prometheus como veremos en posteriores entradas. 
 
 # References
 
