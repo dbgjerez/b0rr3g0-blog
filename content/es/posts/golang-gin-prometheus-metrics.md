@@ -1,15 +1,27 @@
 ---
-title: "Monitorización con Grafana de aplicaciones Golang I"
+title: "Métricas Golang applicaciones"
 date: 2022-07-14
 draft: true
-tags: ["monitoring", "prometheus", "golang", "gin-gonic", "grafana"]
+tags: ["monitoring", "prometheus", "golang", "gin-gonic"]
+series: ["Monitoring a Microservice"]
 ---
+
+En este artículo vamos a exponer las métricas en el formato esperado por Prometheus, como base de monitorización Open Source, escalable y Cloud Native. 
+<!--more-->
+
+Para la exposición de las métricas vamos a utilizar las propias librerias de Prometheus. Es muy importante evitar lo máximo posible el acoplamiento a estas librerias, ya que si algún día queremos modificar nuestro stack de monitorización, la tarea sea lo más sencilla posible.
+
+# Librerias 
+
+Prometheus nos ofrece tres librerias, lo primero será añadirlas a nuestro proyecto:
 
 ```zsh
 go get github.com/prometheus/client_golang/prometheus
 go get github.com/prometheus/client_golang/prometheus/promauto
 go get github.com/prometheus/client_golang/prometheus/promhttp
 ```
+
+# Código de monitorización
 
 En mi caso, estoy utilizando gin (Gin Framework), por tanto tengo que crear un handler para exponer las métricas:
 
@@ -38,6 +50,8 @@ func main() {
 	router.Run(":8080")
 }
 ```
+
+# Consulta de métricas
 
 Si ejecuto mi aplicación: 
 
@@ -75,4 +89,5 @@ go_gc_duration_seconds_count 0
 
 # References
 
-* 
+- https://github.com/dbgjerez/golang-k8s-helm-helloworld
+- https://prometheus.io/docs/guides/go-application/
