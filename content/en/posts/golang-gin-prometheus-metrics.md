@@ -6,14 +6,15 @@ tags: ["monitoring", "prometheus", "golang", "gin-gonic"]
 series: ["Monitoring a Microservice"]
 ---
 
-En este artículo vamos a exponer las métricas en el formato esperado por Prometheus, como base de monitorización Open Source, escalable y Cloud Native. 
+We will see how to expose metrics in Prometheus original format as Open Source monitoring tool, scalable and Cloud Native. 
 <!--more-->
+Prometheus give us specific libraries for each programming language. 
 
-Para la exposición de las métricas vamos a utilizar las propias librerias de Prometheus. Es muy importante evitar lo máximo posible el acoplamiento a estas librerias, ya que si algún día queremos modificar nuestro stack de monitorización, la tarea sea lo más sencilla posible.
+As an essential point, we should avoid coupling our applications with intrusive libraries, as in the future our monitoring stack could change. 
 
-# Librerias 
+# Libraries 
 
-Prometheus nos ofrece tres librerias, lo primero será añadirlas a nuestro proyecto:
+Firstly, we will add the three Prometheus libraries to our project: 
 
 ```zsh
 go get github.com/prometheus/client_golang/prometheus
@@ -21,47 +22,47 @@ go get github.com/prometheus/client_golang/prometheus/promauto
 go get github.com/prometheus/client_golang/prometheus/promhttp
 ```
 
-# Código de monitorización
+# Monitoring code
 
-En mi caso, estoy utilizando gin (Gin Framework), por tanto tengo que crear un handler para exponer las métricas:
+As I'm using Gin-gonic as a development Framework, I have to create a specific handle to expose the metrics: 
 
 ```golang
 package interfaces
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
+    "github.com/gin-gonic/gin"
+    "github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func MetricsHandlerGetHandler() func(c *gin.Context) {
-	return func(c *gin.Context) {
-		prometheusHandler := promhttp.Handler()
-		prometheusHandler.ServeHTTP(c.Writer, c.Request)
-	}
+    return func(c *gin.Context) {
+        prometheusHandler := promhttp.Handler()
+        prometheusHandler.ServeHTTP(c.Writer, c.Request)
+    }
 }
 ```
 
-Dicho handler se añade a la ruta:
+Add the handler to the router: 
 
 ```golang
 func main() {
-	router := gin.Default()
-	router.GET("/metrics", interfaces.MetricsHandlerGetHandler())
-	router.Run(":8080")
+    router := gin.Default()
+    router.GET("/metrics", interfaces.MetricsHandlerGetHandler())
+    router.Run(":8080")
 }
 ```
 
-# Consulta de métricas
+# Testing the metrics
 
-Si ejecuto mi aplicación: 
+Run the application:
 
 ```golang
 ❯ go run app.go
 [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
 
 [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
- - using env:	export GIN_MODE=release
- - using code:	gin.SetMode(gin.ReleaseMode)
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
 
 [GIN-debug] GET    /api/v1/health            --> golang-k8s-helm-helloworld/interfaces.HealthcheckGetHandler.func1 (3 handlers)
 [GIN-debug] GET    /api/v1/grettings         --> golang-k8s-helm-helloworld/interfaces.MessageGetHandler.func1 (3 handlers)
@@ -69,9 +70,9 @@ Si ejecuto mi aplicación:
 [GIN-debug] Listening and serving HTTP on :8080
 ```
 
-Podemos ver como está disponible el endpoint ```/metrics```
+The application expose the ```/metrics```` endpoint, as you can see at logs.
 
-Si realizamos una consulta sobre dicho endpoint:
+If we call this endpoint: 
 
 ```zsh
 ❯ curl localhost:8080/metrics
@@ -86,6 +87,8 @@ go_gc_duration_seconds_sum 0
 go_gc_duration_seconds_count 0
 ...
 ```
+
+We can see a lot of parameters. In the following articles, we will see how Prometheus reads these metrics and store them. 
 
 # References
 

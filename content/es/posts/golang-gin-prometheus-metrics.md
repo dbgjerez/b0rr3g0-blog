@@ -87,7 +87,9 @@ go_gc_duration_seconds_count 0
 ...
 ```
 
-El listado de métricas es mucho más extenso. Estas métricas serán leidas por Prometheus como veremos en posteriores entradas. 
+El listado de métricas es mucho más extenso. 
+
+Estas métricas serán leidas por Prometheus como veremos en posteriores entradas. 
 
 # References
 
