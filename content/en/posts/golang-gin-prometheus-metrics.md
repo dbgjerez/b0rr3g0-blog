@@ -1,6 +1,6 @@
 ---
 title: "Golang application metrics"
-date: 2022-07-14
+date: 2022-07-21
 draft: true
 tags: ["monitoring", "prometheus", "golang", "gin-gonic"]
 series: ["Monitoring a Microservice"]
