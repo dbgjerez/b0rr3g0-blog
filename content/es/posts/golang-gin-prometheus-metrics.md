@@ -1,7 +1,6 @@
 ---
 title: "Métricas en aplicationes Go"
 date: 2022-07-21
-draft: true
 tags: ["monitoring", "prometheus", "go", "gin-gonic"]
 series: ["Monitoring a Microservice"]
 ---
