@@ -1,6 +1,6 @@
 baseURL="https://blog.dbgjerez.es"
-title="b0rr3g0"
-subtitle="omg"
+title="Tech blog"
+subtitle="Programmaing, DevOps and more"
 theme="beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
@@ -8,6 +8,10 @@ pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 googleAnalytics = "G-NL3RYZ5Z31"
+
+[taxonomies]
+  tag="tags"
+  series="series"
 
 [languages]
   [languages.en]
@@ -19,12 +23,12 @@ googleAnalytics = "G-NL3RYZ5Z31"
   mainSections = ["post","posts"]
   logo = "img/avatar-icon.png" # Expecting square dimensions
   favicon = "sheep.png"
-  dateFormat = "January 2, 2006"
+  dateFormat = "January, 2006"
   commit = false
   rss = true
   comments = true
   readingTime = true
-  wordCount = true
+  wordCount = false
   useHLJS = true
   socialShare = true
   delayDisqus = true
@@ -46,7 +50,12 @@ googleAnalytics = "G-NL3RYZ5Z31"
 [[menu.main]]
     name = "Tags"
     url = "tags"
-    weight = 3
+    weight = 2
+
+[[menu.main]]
+    name = "Series"
+    url = "series"
+    weight = 2
 
 [[menu.main]]
     name = "About"
