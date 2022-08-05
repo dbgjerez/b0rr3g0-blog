@@ -9,13 +9,6 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 googleAnalytics = "G-NL3RYZ5Z31"
 
-[markup]
-  defaultMarkdownHandler = "goldmark"
-	
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-     
 [taxonomies]
   tag="tags"
   series="series"
