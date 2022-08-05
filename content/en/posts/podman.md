@@ -5,7 +5,7 @@ draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing an application with Podman"]
 ---
-
+lkasjdkajsd
 # Principal commands
 
 |command|description   |
@@ -135,48 +135,90 @@ podman kill \
 
 ## podman rm
 
-|option|example|description   |
-|---|---|---|
-||||
+|option|description|
+|---|---|
+|-a|Removes all containers|
+|-f|Force to remove the container|
+
+The following example remove all the containers in the system.
+
+```zsh
+podman rm -a
+```
 
 ## podman exec
 
-|option|example|description   |
-|---|---|---|
-||||
+|option|description|
+|---|---|
+|-i|Interactive mode|
+|-t|Allocate a pseudo-TTY for container. It is often use together with -i option|
+|-e|Set an environment variable|
 
 ## podman build
 
-|option|example|description   |
-|---|---|---|
-||||
+|option|description   |
+|---|---|
+|--build-arg argument=value|Argument to the builder process|
+|-f path|Path to the Containerfile with the instructions to build the image|
+|--force-rm|Remove all the intermediates containers|
+|--layers false|Cache intermediates layers during the build. By default the value is true|
+|-t name|Tagged the name of the image result|
+
+In this case the build command depends a lot of the instructions in our ```Containerfile```.
+
+The following example shows how to build an image with the name ```b0rr3g0/example-tag-image``` and the version ```0.1```.
+
+On the other hand, it is using the file ```Containerfile``` to build the imagen.
+
+```zsh
+podman build \
+    -t b0rr3g0/example-tag-image:0.1 \
+    -f Containerfile
+```
 
 ## podman tag
 
-|option|example|description   |
-|---|---|---|
-||||
+The ```tag``` command has not an option. In this case the command adds a name to an existing image.
+
+This example tag the image ```b0rr3g0/example-tag-image:0.1``` with the name ```b0rr3g0/golang-ms```.
+
+```zsh
+podman tag b0rr3g0/example-tag-image:0.1 b0rr3g0/golang-ms
+```
 
 ## podman push
 
-|option|example|description   |
-|---|---|---|
-||||
+This example push the image ```b0rr3g0/golang-ms``` to the registry.
 
 ## podman login
 
-|option|example|description   |
-|---|---|---|
-||||
+|option|description   |
+|---|---|
+|-u usuario|Indicates the user|
+|-p password|Indicate the password for the user|
+
+The follwing example login the user ```dborrego``` in the registry ```quai.io``` with the password ```12345```.
 
 ## podman restart
 
-|option|example|description   |
-|---|---|---|
-||||
+|option|description   |
+|---|---|
+|-a|Restart all the containers|
+
+To restart a container with the id ```a25...``` we have to execute this command:
+
+```zsh
+podman restart a25
+```
 
 ## podman rmi
 
-|option|example|description   |
-|---|---|---|
-||||
+|option|description   |
+|---|---|
+|-a|Remove all the images|
+
+To clean all the local registry only have to use the following command:
+
+```zsh
+podman rmi -a
+```
