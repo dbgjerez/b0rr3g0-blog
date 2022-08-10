@@ -60,6 +60,7 @@ docker.io/library/golang  1.19        da8d5a6f7a03  33 hours ago  1.02 GB
 |---|---|
 |--filter|Filter the query|
 |--format|Format the output|
+|--is-official|Find only an official images|
 
 The following example finds all images with golang in its name.
 
