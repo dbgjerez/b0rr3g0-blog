@@ -102,12 +102,15 @@ The ```-p``` option will be used to map the port and visualize the HTML files.
 
 It will run in interactive and background mode, so the ```-itd``` option is needed. 
 
+In addition, we will call ```http-server``` our HTTP server container. 
+
 ```zsh
 podman  run \
         -dit \
         --name HTTP-example \
         -p 8080:80 \
         -v "$PWD":/usr/local/apache2/htdocs/ \
+        --name http-server \
         httpd:2.4
 ```
 
@@ -209,14 +212,24 @@ podman tag b0rr3g0/example-tag-image:0.1 b0rr3g0/golang-ms
 
 This example push the image ```b0rr3g0/golang-ms``` to the registry.
 
+```zsh
+podman push b0rr3g0/golang-ms
+```
+
 ## podman login
 
 |option|description   |
 |---|---|
-|-u usuario|Indicates the user|
+|-u user|Indicates the user|
 |-p password|Indicate the password for the user|
 
-In the following example login the user ```dborrego``` in the registry ```quai.io``` with the password ```12345```.
+In the following example login the user ```dborrego``` in the registry ```quay.io``` with the password ```12345```.
+
+```zsh
+podman login quay.io -u dborrego                                                
+Password: 
+Login Succeeded!
+```
 
 ## podman restart
 

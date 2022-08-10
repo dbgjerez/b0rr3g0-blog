@@ -11,7 +11,7 @@ En los últimos años, Podman ha ido añadiendo nuevas funcionalidades y mejoran
 
 # Ventajas de usar Podman
 
-La principales ventajas del uso de Podman frente a Docker son el ```daemon``` principal y el uso de ```root```. 
+Las principales ventajas del uso de Podman frente a Docker son el ```daemon``` principal y el uso de ```root```. 
 
 Docker necesita de un proceso principal corriendo, mientras que podman es ```daemonless```, es decir no es necesario tener un proceso continuamente corriendo en nuestro sistema. Como resultado, cada contenedor es un hilo hijo del proceso principal. 
 
@@ -29,26 +29,26 @@ Al contrario de docker, podman no posee la capacidad de orquestar contenedores d
 
 |Comando|Descripción   |
 |---|---|
-|[images](#podman-images)      |Lists images in local registry   |
-|[search](#podman-search)      |Search an image in registries   |
-|[pull](#podman-pull)          |Pull an image from a registry   |
-|[run](#podman-run)            |Run a container from a image   |
-|[ps](#podman-ps)              |Show containers info  |
-|[stop](#podman-stop)          |Stop a container   |
-|[kill](#podman-kill)          |Kill the main container process with a specific signal  |
-|[rm](#podman-rm)              |Delete a container   |
-|[exec](#podman-exec)          |Exec a command inside the container   |
-|[build](#podman-build)        |Build an image from a specific Containerfiles   |
-|[tag](#podman-tag)            |Add name and version to a image   |
-|[push](#podman-push)          |Push the image to a specific registry   |
-|[login](#podman-login)        |Login into a registry   |
-|[restart](#podman-restart)    |Restart a specific container   |
-|[rmi](#podman-rmi)            |Delete an image from local   |
+|[images](#podman-images)      |Lista todas las imágenes en el registry local   |
+|[search](#podman-search)      |Busca una imagen en los registries remotos   |
+|[pull](#podman-pull)          |Descarga una imagen   |
+|[run](#podman-run)            |Ejecuta un contenedor   |
+|[ps](#podman-ps)              |Muestra la información de los contenedores locales  |
+|[stop](#podman-stop)          |Para uno o varios contenedores   |
+|[kill](#podman-kill)          |Mata el proceso principal de un contenedor con una señal específica  |
+|[rm](#podman-rm)              |Elimina un contenedor   |
+|[exec](#podman-exec)          |Ejecuta un comando dentro de un contenedor   |
+|[build](#podman-build)        |Construye una imagen a partir de un fichero de instrucciones   |
+|[tag](#podman-tag)            |Añade un nombre y versión a una imagen   |
+|[push](#podman-push)          |Sube una imagen a un registry   |
+|[login](#podman-login)        |Login en un registry  |
+|[restart](#podman-restart)    |Reinicia un contenedor   |
+|[rmi](#podman-rmi)            |Elimina una imagen local   |
 
-Now, we will see how to use each of them with a complete example.
+A continuación, se van a mostrar algunos ejemplos y las opciones principales de los comandos indicados. 
 
 ## podman images
-List all our local images.
+Lista todas las imágenes
 
 ```zsh
 podman images
@@ -57,16 +57,17 @@ docker.io/library/golang  1.19        da8d5a6f7a03  33 hours ago  1.02 GB
 ```
 
 ## podman search
-|option|description|
+|opción|descripción|
 |---|---|
-|--filter|Filter the query|
-|--format|Format the output|
+|--filter|Filtro para la query|
+|--format|Formatea la salida|
+|--is-official|Busca solo imágenes oficiales|
 
-The following example finds all images with golang in its name.
+En el siguiente ejemplo vamos a realizar una búsqueda de todas las imágenes que contengan la palabra ```golang```:
 
-I will apply a filter that finds only official images (```--filter is-official=true```).
+Aplicaremos un filtro para buscar solo imágenes oficiales: (```--filter is-official=true```).
 
-Also, the output is customized using the ```--format "{{.Name}}\t{{.Description}}"``` parameter.
+También vamos a formatear la salida para mostrar únicamente el nombre y la descripción: ```--format "{{.Name}}\t{{.Description}}"``` 
 
 ```zsh
 podman search golang --filter is-official=true --format "{{.Name}}\t{{.Description}}"
@@ -74,9 +75,9 @@ docker.io/library/golang    Go (golang) is a general purpose, higher-lev...
 ```
 
 ## podman pull
-This command downloads the desired image. You only have to indicate the image tag. 
+Este comando descarga una imagen concreta. Únicamente hay que indicar el tag de la imagen a descargar. 
 
-In this example, we will download the golang image in this 1.19 version.
+En el siguiente ejemplo, vamos a descargar la versión ```1.19``` de la imagen ```golang```.
 
 ```zsh
 podman pull docker.io/library/golang:1.19
@@ -84,23 +85,25 @@ podman pull docker.io/library/golang:1.19
 
 ## podman run
 
-|option|description|
+|Opción|Descripción|
 |---|---|
-|-v host:container|Mount the local machine volume inside the pod|
-|-p port_host:port_container|Expose the container pod in local machine|
-|-d|Background way|
-|-e VAR=value|Set environment variables|
-|-i|Interactive mode|
-|-t|Allocate a pseudo-TTY for the container. It's often used together with -i option|
-|--name|Asign a name to the container. It's very useful to manage it. |
+|-v host:container|Monta un directorio local en el contenedor|
+|-p port_host:port_container|Realiza la exposición de un puerto del contenedor a uno de la máquina host|
+|-d|Modo en segundo plano|
+|-e VAR=value|Añade una variable de entorno|
+|-i|Modo interactivo|
+|-t|Normalmente se utiliza con la opción -i. En este caso añade algunas opciones de interacción como stdin, stdout, etc|
+|--name|Añade un nombre al contenedor|
 
-Now I will deploy an HTTP server with my HTML code. 
+En este ejemplo, vamos a desplegar un servidor http con un fichero ```index.html``` propio. 
 
-I need the ```-v``` option to mount the volume with the HTML files. 
+La opción ```-v``` será necesaria para montar nuestro volumen local con los ficheros html.
 
-The ```-p``` option will be used to map the port and visualize the HTML files. 
+Indicando ```-p``` el contenedor, y por tanto nuestro servidor HTTP será accesible desde la máquina host. 
 
-It will run in interactive and background mode, so the ```-itd``` option is needed. 
+Ejecutaremos el contenedor en segundo plano y en modo interactivo con las opciones ```-itd```
+
+Vamos a llamar al contenedor ```http-server``` haciendo uso de la opción ```-name```.
 
 ```zsh
 podman  run \
@@ -108,16 +111,17 @@ podman  run \
         --name HTTP-example \
         -p 8080:80 \
         -v "$PWD":/usr/local/apache2/htdocs/ \
+        --name http-server \
         httpd:2.4
 ```
 
 ## podman ps
 
-|option|description|
+|Opción|Descripción|
 |---|---|
-|-a|Visualize all pods running or not|
+|-a|Visualiza todos los contenedores, sea cual sea su estado|
 
-The following example lists all pods in the system.
+En el siguiente ejemplo vemos todos los contenedores, concretamente veremos el servidor desplegado en el ejemplo anterior.
 
 ```zsh
 podman ps -a
@@ -127,11 +131,11 @@ CONTAINER ID  IMAGE                        COMMAND           CREATED            
 
 ## podman stop
 
-|option|description|
+|Opción|Descripción|
 |---|---|
-|-a|Stops all the containers|
+|-a|Para todos los contenedores en ejecución|
 
-The following example stops the pod with the name ```http-example```. Another possibility is to pass the id instead of the name.
+En este ejemplo vamos a parar nuestro servidor web, llamado ```http-example```, podemos indicar el nombre o el id. 
 
 ```zsh
 podman stop http-example
@@ -139,12 +143,12 @@ podman stop http-example
 
 ## podman kill
 
-|option|description|
+|Opción|Descripción|
 |---|---|
-|-s|Specifies a signal to send to the process|
-|-a|Send signal to all running containers|
+|-s|Especifica la señal a mandar al proceso principal del contenedor|
+|-a|Envía la señal a todos los contenedores en estado de ejecución en el sistema|
 
-The following example sends the signal ```TERM``` to all running containers.
+En el siguiente ejemplo, vamos a mandar la señal ```TERM``` a todos los contenedores en ejecución.
 
 ```zsh
 podman kill \
@@ -154,12 +158,12 @@ podman kill \
 
 ## podman rm
 
-|option|description|
+|Opción|Descripción|
 |---|---|
-|-a|Removes all containers|
-|-f|Force to remove the container|
+|-a|Elimina todos los contenedores|
+|-f|Fuerza la eliminación del contenedor|
 
-In the following example, I remove all the containers in the system.
+En este ejemplo, eliminaremos todos los contenedores en estado de no ejecución. Es importante destacar que podman no elimina contenedores en ejecución, para ello, primero tendríamos que parar el mismo. 
 
 ```zsh
 podman rm -a
@@ -167,27 +171,25 @@ podman rm -a
 
 ## podman exec
 
-|option|description|
+|Opción|Descripción|
 |---|---|
-|-i|Interactive mode|
-|-t|Allocate a pseudo-TTY for the container. It is often used together with -i option|
-|-e|Set an environment variable|
+|-i|Modo interactivo|
+|-t|Habilita la interacción TTY con el contenedor|
+|-e|Añade variables de entorno|
 
 ## podman build
 
-|option|description   |
+|Opción|Descripción   |
 |---|---|
-|--build-arg argument=value|Argument to the builder process|
-|-f path|Path to the Containerfile with the instructions to build the image|
-|--force-rm|Remove all the intermediates containers|
-|--layers false|Cache intermediates layers during the build. By default, the value is true|
-|-t name|Tagged the name of the image result|
+|--build-arg argument=value|Argumento en tiempo de compilación|
+|-f path|Path donde se encuentra el Containerfile|
+|--force-rm|Elimina todos los contenedores intermedios|
+|--layers false|Utiliza la caché en la construcción para los contenedores intermedios|
+|-t name|Indica el tag de la imagen resultante|
 
-In this case, the build command depends on the instructions in our ```Containerfile```.
+En este caso, vamos a utilizar el fichero de imagen ```Containerfile```, haciendo uso de la opción ```-f Containerfile```
 
-The following example shows how to build an image with the name ```b0rr3g0/example-tag-image``` and the version ```0.1```.
-
-In addition, It's using the file ```Containerfile``` instructions to build the image.
+Vamos a utilizar el tag ```b0rr3g0/example-tag-image``` en la versión ```0.1```. En este caso, la opción a añadir es: ```-t b0rr3g0/example-tag-image:0.1```
 
 ```zsh
 podman build \
@@ -197,9 +199,9 @@ podman build \
 
 ## podman tag
 
-The ```tag``` command doesn't have an option. In this case, the command adds a name to an existing image.
+El uso del comando ```tag``` es sencillo, solo añade un nombre a una imagen existente. 
 
-This example tag the image ```b0rr3g0/example-tag-image:0.1``` with the name ```b0rr3g0/golang-ms```.
+En este ejemplo, crearemos un nombre nuevo de imagen a partir de ```b0rr3g0/example-tag-image:0.1```, llamada ```b0rr3g0/golang-ms```.
 
 ```zsh
 podman tag b0rr3g0/example-tag-image:0.1 b0rr3g0/golang-ms
@@ -207,24 +209,38 @@ podman tag b0rr3g0/example-tag-image:0.1 b0rr3g0/golang-ms
 
 ## podman push
 
-This example push the image ```b0rr3g0/golang-ms``` to the registry.
+El comando ```push```, se utiliza para subir imágenes.
+
+En este caso, subiré la imagen ```b0rr3g0/golang-ms```.
+
+```zsh
+podman push b0rr3g0/golang-ms
+```
 
 ## podman login
 
-|option|description   |
+|Opción|Descripción   |
 |---|---|
-|-u usuario|Indicates the user|
-|-p password|Indicate the password for the user|
+|-u usuario|Indica el usuario|
+|-p contraseña|Indica la contraseña del usuario|
 
-In the following example login the user ```dborrego``` in the registry ```quai.io``` with the password ```12345```.
+Un ejemplo de uso sería el login del usuario ```dborrego``` en el registry ```quay.io``` con la contraseña ```12345```.
+
+
+
+```zsh
+podman login quay.io -u dborrego                                                
+Password: 
+Login Succeeded!
+```
 
 ## podman restart
 
-|option|description   |
+|Opción|Descripción   |
 |---|---|
-|-a|Restart all the containers|
+|-a|Reinicia todos los contenedores|
 
-To restart a container with the id ```a25...``` we have to execute this command:
+En el siguiente ejemplo voy a reiniciar el contenedor cuyo id comienza por ```a25...```:
 
 ```zsh
 podman restart a25
@@ -232,11 +248,11 @@ podman restart a25
 
 ## podman rmi
 
-|option|description   |
+|Opción|Descripción   |
 |---|---|
-|-a|Remove all the images|
+|-a|Elimina todas las imágenes|
 
-To clean all the local registry only have to use the following command:
+El siguiente ejemplo elimina todas las imágenes locales: 
 
 ```zsh
 podman rmi -a
