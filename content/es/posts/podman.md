@@ -257,3 +257,7 @@ El siguiente ejemplo elimina todas las imágenes locales:
 ```zsh
 podman rmi -a
 ```
+
+# References
+* https://docs.podman.io/en/latest/
+* 
