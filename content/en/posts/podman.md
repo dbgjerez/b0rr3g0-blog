@@ -3,7 +3,7 @@ title: "Manage containers with podman"
 date: 2022-08-10
 draft: true
 tags: ["docker", "container", "podman"]
-series: ["Containerizing an application with Podman"]
+series: ["Containerizing applications with Podman"]
 ---
 When we talk about containers, it's prevalent to talk about ```Docker```. Docker used to be the most popular container platform. 
 

@@ -3,7 +3,7 @@ title: "How to create a container"
 date: 2022-07-28
 draft: true
 tags: ["docker", "container", "podman"]
-series: ["Containerizing an application with Podman"]
+series: ["Containerizing applications with Podman"]
 ---
 
 # Principal commands
