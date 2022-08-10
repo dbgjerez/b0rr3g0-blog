@@ -1,6 +1,6 @@
 ---
 title: "Manage containers with podman"
-date: 2022-07-10
+date: 2022-08-10
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing an application with Podman"]
@@ -8,6 +8,7 @@ series: ["Containerizing an application with Podman"]
 When we talk about containers, it's prevalent to talk about ```Docker```. Docker used to be the most popular container platform. 
 
 It has changed, and we can use other platforms that improve some features. In this case, we will talk about ```Podman```. 
+<!--more-->
 
 # Adventages to use podman
 The main advantages of using podman, as opposed to docker are two: the daemon and root. 
@@ -254,3 +255,7 @@ To clean all the local registry only have to use the following command:
 ```zsh
 podman rmi -a
 ```
+
+# References
+* https://docs.podman.io/en/latest/
+* https://github.com/dbgjerez/b0rr3g0-blog/blob/master/content/es/posts/podman.md

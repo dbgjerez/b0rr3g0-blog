@@ -1,6 +1,6 @@
 ---
 title: "Contanedores con Podman"
-date: 2022-07-10
+date: 2022-08-10
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing an application with Podman"]
@@ -9,6 +9,7 @@ Al hablar de contenedor, es común hablar de Docker. Docker ha sido durante vari
 
 En los últimos años, Podman ha ido añadiendo nuevas funcionalidades y mejorando algunas ya existentes. En este artículo veremos en detalle cómo trabajar con Podman. 
 
+<!--more-->
 # Ventajas de usar Podman
 
 Las principales ventajas del uso de Podman frente a Docker son el ```daemon``` principal y el uso de ```root```. 
@@ -260,4 +261,4 @@ podman rmi -a
 
 # References
 * https://docs.podman.io/en/latest/
-* 
+* https://github.com/dbgjerez/b0rr3g0-blog/blob/master/content/es/posts/podman.md
