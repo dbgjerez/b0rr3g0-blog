@@ -1,5 +1,5 @@
 ---
-title: "How to create a container image"
+title: "Como crear una imagen de contenedor"
 date: 2022-07-28
 draft: true
 tags: ["docker", "container", "podman"]
