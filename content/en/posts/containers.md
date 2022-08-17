@@ -1,6 +1,6 @@
 ---
 title: "How to create a container image"
-date: 2022-07-28
+date: 2022-08-17
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing applications with Podman"]
@@ -11,7 +11,7 @@ series: ["Containerizing applications with Podman"]
 |command|description   |
 |---|---|
 |FROM|declares the image to use as base|
-|LABEL|metada|
+|LABEL|metadata|
 |MAINTAINER|indicates the Author|
 |RUN|executes shell commands as new layer|
 |EXPOSE|indicates a port to expose|
