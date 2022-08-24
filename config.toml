@@ -55,7 +55,7 @@ googleAnalytics = "G-NL3RYZ5Z31"
 [[menu.main]]
     name = "Series"
     url = "series"
-    weight = 2
+    weight = 3
 
 [[menu.main]]
     name = "About"
