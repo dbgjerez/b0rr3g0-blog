@@ -1,14 +1,13 @@
 ---
-title: "Manage users with htpasswd"
+title: "Manage users with HTPasswd"
 date: 2022-08-17
-draft: false
 tags: ["htpasswd", "security"]
 series: ["Manage Openshift users"]
 ---
 
 HTPasswd is a Unix tool which is used to manage elemental user lists.
 
-At this article, we will discover how to use the  ```htpasswd``` command.
+In this article, we will discover how to use the  ```htpasswd``` command.
 <!--more-->
 
 # HTPasswd file
@@ -25,7 +24,7 @@ tester:$apr1$vhnjzebZ$.emX47WYDASfh4M6Ue5Wv0
 ```
 
 # How to use
-Htpasswd offers many configuration options for file generation, updating, encrypting, etc.
+HTPasswd offers many configuration options for file generation, updating, encrypting, etc.
 
 The following table shows the principal options:
 
