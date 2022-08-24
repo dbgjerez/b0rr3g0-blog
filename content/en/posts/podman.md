@@ -1,7 +1,6 @@
 ---
 title: "Manage containers with podman"
 date: 2022-08-10
-draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing applications with Podman"]
 ---
