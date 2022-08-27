@@ -1,68 +1,64 @@
 ---
-title: "Manejo de usuarios con HTPasswd"
+title: "Gestión de usuaro con HTPasswd"
 date: 2022-08-17
-draft: false
 tags: ["htpasswd", "security"]
 series: ["Manage Openshift users"]
 ---
+HTPasswd es una herramienta que nos facilita la gestión de listas de usuarios y sus credenciales.
 
-HTPasswd es una herramienta unix para la gestión básica de listas de usuarios. 
-
-En este artículo vamos a ver cómo trabajar con el comando ```htpasswd``` para gestionar nuestras propias listas de usuario.
+En este artículo veremos cómo crear listas de usuarios, actualizar, etc. 
 <!--more-->
 
-# Estructura fichero HTPasswd
+# Fichero HTPasswd
+Un fichero HTPasswd contiene ```n``` líneas. Cada linea representa un usuario y su contraseña, separados por el caracter ```:```.
 
-Un fichero de htpasswd es un fichero con n línea, cada línea representa un usuario y su respectiva contraseña. 
+El nombre de usuario puede ser visualizado en claro, mientras que la contraseña se encontrará encriptada.
 
-La contraseña del usuario se encuentra encriptada. 
-
-En el siguiente ejemplo podemos ver un fichero con dos usuarios llamados ```developer``` y ```tester``` con contraseña ```dev12345``` y ```test12345```.
+A continuación, podemos visualizar el ejemplo de un fichero que contiene dos usuarios: ```developer``` y ```tester```. Sus contraseñas, serán ```dev12345``` y ```test12345``` respectivamente. 
 
 ```properties
 developer:$apr1$ukdXlwVY$/ghTjaQageNScb0KEwsKX1
 tester:$apr1$vhnjzebZ$.emX47WYDASfh4M6Ue5Wv0
 ```
 
-# Uso
-Htpasswd ofrece muchas opciones de configuración, encriptado, generación de ficheros, actualización, etc. 
-
-A continuación se muestra una tabla con las principales opciones. 
+# Cómo utilizar HTPasswd
+HTPasswd ofrece muchas opciones de configuración, actualización, encriptación, etc. A continuación, podemos ver una tabla a modo de resumen de los principales comandos.
 
 |Opción|Descripción|
 |---|---|
-|-c|Crea el fichero|
-|-n|No actualiza el fichero, sólo muentra el resultado en pantalla|
-|-b|Recibe la contraseña en el propio comando (inseguro)|
-|-B|Encripta la contraseña con bcrypt (muy seguro y recomendado)|
-|-D|Elimina un usuario específico|
+|-c|Crea un fichero|
+|-n|Solo muentra el resultado por pantalla, sin modificar el fichero|
+|-b|Recibe la contraseña del usuario desde la línea de comandos (inseguro)|
+|-B|Encripta la contraseña con bcrypt (recomendado)|
+|-D|Elimina un usuario del fichero|
 |-v|Verifica la contraseña de un usuario específico|
 
-> Nota: La no inclusión de -B realizará un encriptado en MD5 (muy inseguro), como mínimo es recomendable utilizar las opciones ```-2``` o ```-5``` para encriptar haciendo uso de ```SHA-256``` o ```SHA-512``` respectivamente. 
+> Nota: Por defecto, la contraseña es encriptada haciendo uso del algoritmo MD5. Este algoritmo es muy inseguro, por tanto se recomienda utilizar la opción ```-B```. Las opciones ```-2``` o ```-5``` encriptan haciendo uso de ```SHA-256``` y ```SHA-512``` respectivamente, siendo opciones seguras. 
 
-# Ejemplos
-## Crear un nuevo fichero
-Creación de un nuevo fichero con un nuevo usuario: 
+# Ejemplo
+## Creación de un fichero
+Creación de un fichero nuevo con el usuario ```developer```
 
 ```bash
 $ htpasswd -Bb -c htpasswd.file developer dev12345
 ```
 
-## Añadir un nuevo usuario
-Al fichero anterior, vamos a añadir un nuevo usuario:
+## Añadir un usuario
+El siguiente ejemplo añade el usuario ```tester``` al fichero ```htpasswd.file```.
+We will add a new user to the below file: 
 
 ```bash
 $ htpasswd -Bb htpasswd.file tester test12345
 ```
 
-## Eliminar un usuario
-Si queremos eliminar el primer usuario creado: 
+## Eliminación de usuario
+En este ejemplo, eliminaremos el usuario que se añadió en el momento de la creación del fichero. 
 
 ```bash
 $ htpasswd -D htpasswd.file developer
 ```
 
-Si vemos el resultado del fichero tras los tres comandos:
+Si vemos el contenido del fichero
 
 ```bash
 $ cat htpasswd.file 
