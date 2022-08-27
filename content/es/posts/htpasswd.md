@@ -1,5 +1,5 @@
 ---
-title: "Gestión de usuaro con HTPasswd"
+title: "Gestión de usuarios con HTPasswd"
 date: 2022-08-17
 tags: ["htpasswd", "security"]
 series: ["Manage Openshift users"]
