@@ -1,7 +1,9 @@
 ---
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Dad, programmer, DevOps and tecnology enthusiastic
 comments: false
 ---
 
-David
+Estoy pensando sobre este apartado.
+
+Mientras, puedes verme en [Linkedin](https://www.linkedin.com/in/david-borrego-guti%c3%a9rrez-868a2466/)
