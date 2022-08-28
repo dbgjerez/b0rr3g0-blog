@@ -1,6 +1,6 @@
 ---
 title: "Como crear una imagen de contenedor"
-date: 2022-08-17
+date: 2023-08-17
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing applications with Podman"]

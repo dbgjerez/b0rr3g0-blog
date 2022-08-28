@@ -1,6 +1,6 @@
 ---
 title: "How to create a container image"
-date: 2022-09-17
+date: 2023-09-17
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing applications with Podman"]
