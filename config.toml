@@ -24,7 +24,7 @@ googleAnalytics = "G-NL3RYZ5Z31"
 
 [Params]
   mainSections = ["post","posts"]
-  subtitle="Programmaing, DevOps and more"
+  subtitle="Programming, DevOps and more"
   logo = "img/avatar-icon.png" # Expecting square dimensions
   favicon = "sheep.png"
   dateFormat = "January, 2006"
