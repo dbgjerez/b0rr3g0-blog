@@ -3,6 +3,7 @@ title: "Golang application metrics"
 date: 2022-07-21
 tags: ["monitoring", "prometheus", "go", "gin-gonic"]
 series: ["Monitoring a Microservice"]
+type: post
 ---
 
 We will see how to expose metrics in Prometheus original format as Open Source monitoring tool, scalable and Cloud Native. 

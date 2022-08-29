@@ -3,6 +3,7 @@ title: "Virtual environments with Python"
 date: 2022-07-08
 draft: false
 tags: ["python", "virtualenv"]
+type: post
 ---
 
 Working with Python we have a lot of libraries or dependencies.

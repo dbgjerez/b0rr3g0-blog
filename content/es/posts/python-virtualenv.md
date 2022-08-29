@@ -3,6 +3,7 @@ title: "Entornos virtuales en Python"
 date: 2022-07-08
 draft: false
 tags: ["python", "virtualenv"]
+type: post
 ---
 
 Cuando trabajamos con Python, normalmente utilizamos una serie de módulos como apoyo. 

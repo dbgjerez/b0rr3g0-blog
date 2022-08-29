@@ -3,6 +3,7 @@ title: "Gestión de usuarios con HTPasswd"
 date: 2022-08-17
 tags: ["htpasswd", "security"]
 series: ["Manage Openshift users"]
+type: post
 ---
 HTPasswd es una herramienta que nos facilita la gestión de listas de usuarios y sus credenciales.
 

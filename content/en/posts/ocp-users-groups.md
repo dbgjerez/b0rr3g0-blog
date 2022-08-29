@@ -3,6 +3,7 @@ title: "Openshift users, groups and roles"
 date: 2022-08-24
 tags: ["Openshift", "htpasswd", "security"]
 series: ["Manage Openshift users"]
+type: post
 ---
 Once we have an Openshift cluster with a list of users, it's important to set what is possible to do for each user. 
 

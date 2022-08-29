@@ -1,0 +1,33 @@
+{{ define "main" }}
+  <div class="container" role="main">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div id="blog-archives" class="category">
+          {{ .Content }} <!-- content of the markdown file. note that inside the range .Content will point to each page's content -->
+          {{ $prev := 3333 }}
+          {{ $prevMonth := "" }}
+          {{ range (where .Site.Pages "Type" "post") }}
+          {{ $act := (.Date.Format "2006") }}
+          <h1>
+            {{ if gt $prev $act }}
+              {{ $prev = $act }}
+              {{ $prev }}
+          </h1>
+            {{ end }}
+            {{ if ne $prevMonth (.Date.Format "January") }}
+            {{ $prevMonth = (.Date.Format "January") }}
+          <h2>
+            <span class="month">{{ .Date | dateFormat "January" }}</span>
+          </h2>
+            {{end}}
+          <article>
+            <h4>
+              <a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            </h4>
+          </article>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

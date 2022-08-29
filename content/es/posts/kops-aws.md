@@ -2,6 +2,7 @@
 title: "Desplegando un cluster de Kubernetes con Kops"
 date: 2022-07-26
 tags: ["kubernetes", "k8s", "kops", "aws"]
+type: post
 ---
 Kops es una herramienta que nos facilita el aprovisionamiento de clúster de Kubernetes en diferentes proveedores cloud. 
 

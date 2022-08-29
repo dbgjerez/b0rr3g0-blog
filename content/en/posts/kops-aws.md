@@ -2,6 +2,7 @@
 title: "Deploy a Kubernetes cluster with Kops"
 date: 2022-07-26
 tags: ["kubernetes", "k8s", "kops", "aws"]
+type: post
 ---
 
 A cheap way to deploy a Kubernetes cluster is using Kops which supply all we need.

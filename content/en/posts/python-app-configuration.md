@@ -3,6 +3,7 @@ title: "Python application configuration"
 date: 2022-07-13
 draft: true
 tags: ["python", "cloud-native", "twelve-factor"]
+type: post
 ---
 Nowadays, we have to configure many configuration parameters in our applications. These parameters sometimes depend on the execution environment. 
 

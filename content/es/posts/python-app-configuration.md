@@ -3,6 +3,7 @@ title: "Configuración aplicaciones Python"
 date: 2022-07-13
 draft: true
 tags: ["python", "cloud-native", "twelve-factor"]
+type: post
 ---
 
 En las aplicaciones actuales, existe un gran número de parámetros de configuración. Estos parámetros, en ocasiones dependen del entorno de ejecución. 

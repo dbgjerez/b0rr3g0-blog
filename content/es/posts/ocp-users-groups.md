@@ -3,6 +3,7 @@ title: "Asignación de roles a usuarios y grupos en Openshift"
 date: 2022-08-24
 tags: ["Openshift", "htpasswd", "security"]
 series: ["Manage Openshift users"]
+type: post
 ---
 La gestión de qué puede hacer quién en un cluster de Openshift o Kubernetes es una de las principales tareas para una correcta gestión de la seguridad. 
 

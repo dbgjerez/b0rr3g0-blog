@@ -3,6 +3,7 @@ title: "How to create Openshift users with HTPasswd provider"
 date: 2022-08-20
 tags: ["Openshift", "htpasswd", "security"]
 series: ["Manage Openshift users"]
+type: post
 ---
 
 It's crucial to manage our Openshift users, group and roles. This article will describe how to configure an OAuth HTPasswd provider. 

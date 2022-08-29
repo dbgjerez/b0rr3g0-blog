@@ -3,6 +3,7 @@ title: "Métricas en aplicationes Go"
 date: 2022-07-21
 tags: ["monitoring", "prometheus", "go", "gin-gonic"]
 series: ["Monitoring a Microservice"]
+type: post
 ---
 
 En este artículo vamos a exponer las métricas en el formato esperado por Prometheus, como base de monitorización Open Source, escalable y Cloud Native. 

@@ -4,6 +4,7 @@ date: 2023-08-17
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing applications with Podman"]
+type: post
 ---
 
 # Principal commands

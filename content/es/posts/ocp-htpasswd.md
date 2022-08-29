@@ -3,6 +3,7 @@ title: "Configuración de HTPasswd en Openshift para gestión de usuarios"
 date: 2022-08-20
 tags: ["Openshift", "htpasswd", "security"]
 series: ["Manage Openshift users"]
+type: post
 ---
 Una de las principales operaciones cuando tenemos una instalación de Openshift es la correcta gestión de usuarios, roles y sus permisos. 
 

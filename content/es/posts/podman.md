@@ -4,6 +4,7 @@ date: 2022-08-10
 draft: true
 tags: ["docker", "container", "podman"]
 series: ["Containerizing applications with Podman"]
+type: post
 ---
 Al hablar de contenedor, es común hablar de Docker. Docker ha sido durante varios años la plataforma de contenedores más usada y popular. 
 
