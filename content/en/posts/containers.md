@@ -1,14 +1,14 @@
 ---
 title: "How to create a container image"
-date: 2022-08-30
+date: 2022-09-01
 draft: false
-tags: ["docker", "container", "podman"]
+tags: ["docker", "container", "podman", "dockerfile"]
 series: ["Containerizing applications with Podman"]
 ---
 
 Containers are a new runtime for our applications. Building a secure, fast and minimum-size image is essential. In this article, we'll do it.
 <!--more-->
-A container file, or Dockerfile if you are using Docker, is a file that describes how to build our container. Using the correct labels and instructions is crucial to getting a precise and optimum run.
+A ```Containerfile```, or ```Dockerfile``` if you are using Docker, is a file that describes how to build our container. Using the correct labels and instructions is crucial to getting a precise and optimum run.
 
 We'll study the principal options to define a Containerfile. In addition, we'll build a Golang application and run it on a container. 
 
