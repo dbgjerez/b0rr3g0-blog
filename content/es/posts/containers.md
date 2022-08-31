@@ -34,17 +34,17 @@ Cabe recordar que cada línea de nuestro fichero de contenedor, será una instru
 
 # Application
 
-## Build the image
+## Construir la imagen
 
-The best way to understand the images is by building one. 
+La mejor forma de entender el proceso de creación de una imagen es construyendo una. 
 
-I have a Golang application to test and show some features. The application can be found here: [https://github.com/dbgjerez/golang-k8s-helm-helloworld](https://github.com/dbgjerez/golang-k8s-helm-helloworld)
+Normalmente, utilizo una aplicación, desarrollada en Go con GinGonic que expone un "Hello world". Esta aplicación la utilizo solo a modo de test, sin entrar en el código. La aplicación se puede encontrar en el siguiente enlace: [https://github.com/dbgjerez/golang-k8s-helm-helloworld](https://github.com/dbgjerez/golang-k8s-helm-helloworld)
 
-Our objective is to run the application on a container, so we have to build the application and the container. 
+Nuestro objetivo final es ejecutar dicha aplicación en un contenedor, así que tenemos que construirla y construir el contenedor. 
 
-It's a good practice to build on a container, as the building process would be idempotent using always the same Containerfile. 
+Es una buena práctica utilizar un contenedor para construir nuestras aplicaciones, de este modo aseguramos que el entorno de construcción siempre será el mismo y consecuentemente, nuestras construcciones serán idempotentes. 
 
-I've used the following: 
+En este caso, utilizaré la misma imagen para construir, como para ejecutar la aplicación: 
 
 ```Docker
 FROM golang:1.18-alpine
@@ -65,9 +65,14 @@ EXPOSE $PORT
 ENTRYPOINT $APP_NAME
 ```
 
-In this case, I'll use the same Containerfile to build and run the application. Definitely, I'll copy the source code, build the application and subsequently delete the source code. 
+Como se puede ver los pasos que sigo son los siguientes:  
+* Copio el código fuente
+* Construyo la aplicación
+* Elimino el código fuente
 
-To build the image, I'll use ```podman``` which is not the objective of this article, in any case, you can check how to use it here: [Podman]({{< ref "/posts/podman.md" >}})
+De esta forma, con un mismo proceso tengo mi imagen disponible y sin los ficheros fuentes. 
+
+Para la construcción y ejecución, hago uso de ```podman```, el cuál no es objetivo de este artículo. Puedes ver cómo utilizarlo y sus principales comandos en el siguiente enlace: [Podman]({{< ref "/posts/podman.md" >}})
 
 ```bash
 podman build \
@@ -75,11 +80,11 @@ podman build \
   .
 ```
 
-Finally, I'll have a result which also is called a container ```image```. 
+Finalmente, una vez finalizado el proceso de construcción tenemos nuestra imagen. 
 
-## Run the image
+## Ejecutar la imagen
 
-As we have our image on the local registry, we can run it easily. I'll run it as a daemon, mapping the port 8080 and assign the name api-test with the following command:
+Al finalizar la construcción, nuestra imagen quedará en nuestro registry local. Para ejecutar la imagen tenemos varias opciones, en mi caso voy a exponer el puerto ````8080````, ejecutarla como un ```demonio``` y darle a mi contenedor el nombre ```api-test```:
 
 ```bash
 podman run \
@@ -89,14 +94,14 @@ podman run \
   localhost/b0rr3g0/golang-hello-world:v0.6
 ```
 
-No, I'll check the response:
+Para comprobar el correcto funcionamiento del contenedor, haremos una petición a la aplicación: 
 
 ```bash
 curl localhost:8080/api/v1/greetings
 {"msg":"Hello world"}
 ```
 
-And voilà... we have a portable application running.
+Y... listo, ya tenemos un contenedor portable con nuestra aplicación ejecutándose. 
 
 # References
 
