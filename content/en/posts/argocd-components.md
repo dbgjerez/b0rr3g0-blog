@@ -8,4 +8,9 @@ series: ["GitOps with ArgoCD"]
 
 # ArgoCD Architecture
 
-# ArgoCD components
+# ArgoCD objects
+
+## Application
+## ApplicationSet
+
+// TODO: add all different argocd objects and his explanation
