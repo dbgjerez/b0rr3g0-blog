@@ -8,6 +8,8 @@ series: ["GitOps with ArgoCD"]
 
 # ArgoCD Architecture
 
+# ArgoCD security
+
 # ArgoCD objects
 
 ## Application
