@@ -27,11 +27,22 @@ In this way, Git becomes in our central piece, simplifying the different process
 
 ArgoCD runs a controller which is continously monitoring the applications and repositories. 
 
-It is able to work with simple yaml files, Helm charts or Kustomize. As a result, ArgoCD deploy process always it's the same. 
+ArgoCD is able to work with simple yaml files, Helm charts or Kustomize. ArgoCD invokes these tools to obtain the final yaml files that it applies.
+
+This point gets particular important as ArgoCD become our orchestrator and catalyser, regardless of the tools used by the developer team. 
 
 ![ArgoCD running](/images/argocd.png)
 
 ## Main features
+
+You can know the complete list of features checking the official ArgoCD documentation. At this point, I'm only going to highlight the mains of them:
+
+* Ability to manage multiple clusters.
+* SSO integration
+* Health status of each application resource
+* Web UI
+* Webhook integration
+* PreSync, Syc and PostSync hooks to support complex integrations or applications rollouts.
 
 # References
 
