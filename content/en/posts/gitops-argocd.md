@@ -7,42 +7,42 @@ series: ["GitOps with ArgoCD"]
 type: post
 ---
 
-It's very important how we operate our ```Kubernetes or OpenShift``` cluster, in other words, how is manage the lifecycle of ours objects.
+It's crucial how we operate our ```Kubernetes or OpenShift``` cluster, in other words, how is managing the lifecycle of our objects.
 <!--more-->
-Some tools like ```Helm``` are used like package manager, but with some lacks as possible rollback or applying new versions. 
+Some tools like ```Helm``` are used like a package manager, but with some lacks as possible rollback or new versions apply. 
 
-Nowadays, ```GitOps``` appears as new option which try to improve our day by day working. 
+Nowadays, ```GitOps``` appears as a new option that tries to improve our daily work. 
 
 # What is GitOps
 
-GitOps ensures a unique true source like is Git, which provides a lot of features like security, versioning, distributing development, pull request, etc.
+GitOps ensures a unique right source like Git, which provides many features like security, versioning, distributing development, pull requests, etc.
 
-Git contains the desired state of one or some pieces on our cluster. Whereas, GitOps guarantee the synchronization between both.
+Git contains the desired state of one or some pieces on our cluster. Whereas, GitOps guarantee synchronization between both.
 
-In this way, Git becomes in our central piece, simplifying the different process and able to make new features. 
+In this way, Git becomes our central piece, simplifying the different processes and able to make new features. 
 
 # Why ArgoCD
 
-```ArgoCD``` is an ```Open Source``` and ```Cloud Native``` tool. It is responsible to syncronize the git status with the applications running on the cluster. 
+```ArgoCD``` is an ```Open Source``` and ```Cloud Native``` tool. It's responsible of the syncronization between git status and the applications running on the cluster. 
 
-ArgoCD runs a controller which is continously monitoring the applications and repositories. 
+ArgoCD runs a controller which is continuously monitoring the applications and repositories. 
 
-ArgoCD is able to work with simple yaml files, Helm charts or Kustomize. ArgoCD invokes these tools to obtain the final yaml files that it applies.
+ArgoCD can work with simple yaml files, Helm charts or Kustomize. ArgoCD invokes these tools to obtain the final yaml files that it applies.
 
-This point gets particular important as ArgoCD become our orchestrator and catalyser, regardless of the tools used by the developer team. 
+This point gets particular importance, as ArgoCD will become our orchestrator and catalyser, regardless of the tools used by the developer team. 
 
 ![ArgoCD running](/images/argocd.png)
 
 ## Main features
 
-You can know the complete list of features checking the official ArgoCD documentation. At this point, I'm only going to highlight the mains of them:
+You can check the complete list of features in the official ArgoCD documentation. At this point, I'm only going to highlight the main of them:
 
 * Ability to manage multiple clusters.
 * SSO integration
 * Health status of each application resource
 * Web UI
 * Webhook integration
-* PreSync, Syc and PostSync hooks to support complex integrations or applications rollouts.
+* PreSync, Sync and PostSync hooks to support complex integrations or applications rollouts.
 
 # References
 
