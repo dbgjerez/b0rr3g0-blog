@@ -8,7 +8,7 @@ type: post
 ---
 
 Cuando trabajamos con Kubernetes o OpenShift toma vital importancia el cómo operamos nuestro cluster, es decir, cómo tratamos el ciclo de vida de nuestros objetos.
-
+<!--more-->
 Hasta ahora, algunas herramientas como ```Helm``` nos han ayudado a realizar esta tarea trabajando como gestor de paquetes. El problema es que estas herramientas tienen algunas lagunas, como son posible rollback, fuente única de la verdad, gestión de la seguridad, etc. 
 
 Hoy en día aparece un nuevo concepto: ```GitOps``` el cual mejorará nuestro día a día tal y como veremos a continuación.
