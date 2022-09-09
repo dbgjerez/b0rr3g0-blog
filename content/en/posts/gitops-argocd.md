@@ -19,6 +19,8 @@ GitOps ensures a unique right source like Git, which provides many features like
 
 Git contains the desired state of one or some pieces on our cluster. Whereas, GitOps guarantee synchronization between both.
 
+Thus, the source repository code (dev), will be separated from the operation's repository (Ops). It will facilitate the separation of both lifecycles.  
+
 In this way, Git becomes our central piece, simplifying the different processes and able to make new features. 
 
 # Why ArgoCD
