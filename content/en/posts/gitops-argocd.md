@@ -1,6 +1,6 @@
 ---
 title: "GitOps and ArgoCD"
-date: 2022-09-07
+date: 2022-09-09
 draft: false
 tags: ["gitops", "argocd", "openshift", "kubernetes", "devops"]
 series: ["GitOps with ArgoCD"]
