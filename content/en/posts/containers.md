@@ -1,9 +1,9 @@
 ---
 title: "How to create a container image"
-date: 2022-09-01
-draft: false
+date: 2022-09-05
 tags: ["docker", "container", "podman", "dockerfile"]
 series: ["Containerizing applications with Podman"]
+type: post
 ---
 
 Containers are a new runtime for our applications. Building a secure, fast and minimum-size image is essential. In this article, we'll do it.

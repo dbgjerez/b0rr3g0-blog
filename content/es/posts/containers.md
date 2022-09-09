@@ -1,9 +1,9 @@
 ---
 title: "Contenerización de aplicaciones"
-date: 2022-09-01
-draft: false
+date: 2022-09-05
 tags: ["docker", "container", "podman", "dockerfile"]
 series: ["Containerizing applications with Podman"]
+type: post
 ---
 
 Los contenedores son una forma de ejecutar nuestras aplicaciones. Construir contenedores seguros, rápidos y de tamaño pequeño es esencial en nuestras arquitecturas. En este artículo veremos cómo hacerlo.
