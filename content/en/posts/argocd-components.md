@@ -35,6 +35,18 @@ When an application is in <<OutOfSyc>> state, the controller can invokes the ```
 
 # ArgoCD Cloud Native objects
 
+Cloud Native is an application or tool, that runs by default on the cloud, taking advantage of it. In this case, ArgoCD is designed to work natively on Kubernetes. 
+
+The ArgoCD configuration can be declarative and Cloud Native. In other words, we can configure it only with native CRDs of Kubernetes. 
+
+Thanks to this approach, we can do GitOps over our ArgoCD installation. 
+
+## ArgoCD CRD
+## AppProject
+## Secret
+### Git repository
+### Helm repository
+### Clusters
 ## Application
 ## ApplicationSet
 
