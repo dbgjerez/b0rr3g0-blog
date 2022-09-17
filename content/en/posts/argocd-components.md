@@ -70,6 +70,16 @@ spec:
 > NOTE: this example contains some commands for Openshift. If you run it in Kubernetes, you just have to omit the server route and dex. 
 
 ## AppProject
+
+An AppProject CRD is a group of applications that defines a series of information about it:
+
+* **sourceRepos:** a list of repositories that can use the applications within the AppProject.
+* **destinations:** reference cluster and namespaces where the applications can be deployed.
+* **roles:** list of roles that you need to access the resources.
+
+This example shows an 
+#TODO
+
 ## Secret
 ### Git repository
 ### Helm repository
