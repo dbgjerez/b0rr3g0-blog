@@ -72,7 +72,7 @@ Como se puede ver los pasos que sigo son los siguientes:
 
 De esta forma, con un mismo proceso tengo mi imagen disponible y sin los ficheros fuentes. 
 
-Para la construcción y ejecución, hago uso de ```podman```, el cuál no es objetivo de este artículo. Puedes ver cómo utilizarlo y sus principales comandos en el siguiente enlace: [Podman]({{< ref "/posts/podman.md" >}})
+Para la construcción y ejecución, hago uso de ```podman```, el cuál no es objetivo de este artículo. Puedes ver cómo utilizarlo y sus principales comandos en el siguiente enlace: [Podman]({{< ref "/podman.md" >}})
 
 ```bash
 podman build \
@@ -106,4 +106,4 @@ Y... listo, ya tenemos un contenedor portable con nuestra aplicación ejecutánd
 # References
 
 * https://github.com/dbgjerez/golang-k8s-helm-helloworld
-* [Podman]({{< ref "/posts/podman.md" >}})
+* [Podman]({{< ref "/podman.md" >}})
